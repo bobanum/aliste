@@ -1,0 +1,9 @@
+[submodule "jsapp"]
+	path = jsapp
+	url = https://github.com/bobanum/jsapp.git
+[submodule "jsmenu"]
+	path = jsmenu
+	url = https://github.com/bobanum/jsmenu.git
+[submodule "jsdb"]
+	path = jsdb
+	url = https://github.com/bobanum/jsdb.git
