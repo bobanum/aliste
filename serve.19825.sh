@@ -3,6 +3,9 @@
 # On change le dossier courant pour le même que le fichier .sh
 chemin=$(dirname "$0")
 cd "${chemin}"
+if [ -d "public" ]; then
+  cd public
+fi
 
 # On cherche le numero de port dans le nom du fichier
 port=`expr "$0" : '.*[_\.\-]\([0-9]*\)\.sh'`

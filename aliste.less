@@ -1,0 +1,153 @@
+html, body {
+	height: 100%;
+	font-size: 16px;
+	font-family: arial;
+}
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: darken(aliceblue,80);
+}
+.section {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	& > * {
+		flex: 1 0 auto;
+	}
+	header, footer {
+		flex: 0 1 auto;
+	}
+	header {
+		order: -1000;
+	}
+	footer {
+		order: 1000;
+	}
+}
+.colonnes {
+	display: flex;
+	& > * {
+		flex: 1 1 auto;
+		padding: 0 1em;
+	}
+	& > .colonne {
+		flex: 0 1 auto;
+	}
+}
+.bouton {
+	background-image: linear-gradient(
+		rgba(255, 255, 255, 0.6),
+		rgba(255, 255, 255, 0) 50%,
+		rgba(0, 0, 0, 0) 50%,
+		rgba(0, 0, 0, 0.4)
+	);
+	box-shadow:
+		-0.1em -0.1em 0.1em rgba(0, 0, 0, 0.5) inset,
+		0.1em 0.1em 0.1em rgba(255, 255, 255, 0.6) inset;
+	width: 7em;
+	text-decoration: inherit;
+	color: inherit;
+	background-color: #446b8d;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 2em;
+	font-size: .8em;
+	color: white;
+	font-weight: bold;
+}
+div.interface {
+	min-height: 100%;
+	width: 960px;
+	margin: 0 auto;
+	background-color: white;
+	.section;
+	& header, & footer {
+		background-color: aliceblue;
+		padding: 1em;
+		& * {
+			margin: 0;
+		}
+		h1 {
+			font-size: 3em;
+			letter-spacing: -.05em;
+			word-spacing: .2em;
+		}
+		small {
+			font-variant: small-caps;
+			font-size: .8em;
+		}
+	}
+	& > header > nav {
+		margin-top: 1em;
+		& > ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			display: flex;
+			& li {
+				flex: 0 0 auto;
+				& + li {
+					margin-left: .5em;
+				}
+			}
+		}
+		& a {
+			.bouton;
+		}
+	}
+	& > div.body {
+		.colonnes;
+		& > .colonne {
+			background-color: darken(aliceblue,10);
+			order: 1;
+		}
+	}
+}
+table.elements {
+	border: solid;
+	width: 100%;
+	& tr:nth-child(odd) {
+		background-color: lighten(aliceblue, 0);
+	}
+	thead {
+		background-color: aliceblue;
+	}
+	td.updated_at {
+		width: 11em;
+		text-align: center;
+	}
+	td.options {
+		width: 3em;
+		text-align: center;
+	}
+	tr.element {
+	}
+}
+span.options {
+	display: flex;
+	& a {
+		display: flex;
+		justify-content: space-around;
+		height: 1em;
+		color: #369;
+		fill: #369;
+//		.bouton;
+		&:hover {
+			color: #036;
+			fill: #036;
+		}
+	}
+}
+div.pub {
+	text-align: center;
+	padding: 1em;
+	img {
+		display: block;
+		margin: 0 auto;
+	}
+}

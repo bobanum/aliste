@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 32 32">
+	<g fill="green">
+		<path d="m12 0v2h-12v4h32v-4h-12v-2h-8zm-10 8v18.828l5.1719 5.172h17.656l5.172-5.172v-18.828h-4v17.172l-2.828 2.828h-14.344l-2.828-2.828v-17.172h-4zm8 0v18h4v-18h-4zm8 0v18h4v-18h-4z" fill-rule="evenodd"/>
+	</g>
+
+</svg>

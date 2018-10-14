@@ -8,6 +8,7 @@ class Liste {
 			return self::$pdo;
 		}
 		self::$pdo = new PDO("sqlite:".self::$db_file);
+		self::$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_CLASS | PDO::FETCH_CLASSTYPE);
 		return self::$pdo;
 	}
 	static function install() {
@@ -16,8 +17,11 @@ class Liste {
 		$element = new Element([
 			"titre"=>'Nouvel élément',
 			"contenu"=>'Nouveau contenu',
-			"created_at"=>time(),
-			"updated_at"=>time(),
+		]);
+		$element->save();
+		$element = new Element([
+			"titre"=>'Autre élément',
+			"contenu"=>'Autre contenu',
 		]);
 		$element->save();
 	}

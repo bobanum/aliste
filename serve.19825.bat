@@ -12,6 +12,10 @@ FOR /F "tokens=2,3 delims=." %%I IN ("%fic%") DO (
 )
 
 cd %chemin%
+IF EXIST public (
+	cd public
+)
+
 :checkport
 netstat -oan |findstr /c:":%port% " >nul
 if %ERRORLEVEL% == 0 (

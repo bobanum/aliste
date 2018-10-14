@@ -1,26 +1,19 @@
 <?php
 include_once "Liste.php";
-if (isset($_POST['action']) && $_POST['action'] === 'ajouter'){
-	if (isset($_POST['annuler'])) {
-		header("location:index.php");
-		exit;
-	}
-	$element = Element::traiterAjouter($_POST);
-	if (!$element) {
-		header("location: index.php");
-		exit;
-	} else {
-		header("location:details.php?id={$element->id}");
-		exit;
-	}
+if (!isset($_GET['id'])) {
+	header("location: index.php");
+	exit;
 }
-$affichage = Element::html_form_ajouter();
+$element = Element::get($_GET['id']);
+if (!$element) {
+	header("location: index.php");
+	exit;
+}
+$affichage = $element->html_details();
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<script src="tinymce/tinymce.min.js"></script>
-	<script src="tinymce.init.js"></script>
 	<link rel="stylesheet" href="aliste.css"/>
 	<title>aListe</title>
 </head>
@@ -39,8 +32,9 @@ $affichage = Element::html_form_ajouter();
 		<div class="body">
 			<div class="colonne">Colonne</div>
 			<div class="contenu">
-				<h1>Ajouter un élément</h1>
-				<?php echo $affichage; ?>
+				<h1>Détails de l'élément</h1>
+				<?php echo $element->html_details() ?>
+				<?php echo $element->html_options() ?>
 			</div>
 		</div>
 	</div>
